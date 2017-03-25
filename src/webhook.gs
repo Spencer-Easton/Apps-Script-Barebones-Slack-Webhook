@@ -5,7 +5,7 @@ function doPost(e) {
       postData = parseParams(e.postData.getDataAsString());
   
   if(postData.token === slackToken){
-    SpreadsheetApp.openById().getSheetByName("Log").appendRow([postData]);
+    SpreadsheetApp.openById( ssLogID ).getSheetByName("Log").appendRow([postData]);
     returnMessage = "Your record has been logged."
   }else{
     returnMessage = "Invalid Token"
